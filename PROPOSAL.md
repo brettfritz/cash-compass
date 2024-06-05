@@ -1,7 +1,6 @@
 # Cash Compass
 ## Pointing you towards financial freedom
 
-
 ## Project Summary
 We want to make a personal finance/net worth tracker that would be accessable to anyone. A person would be able to go to the website and create an account with their personal information. Once logged in, they will have access to all of their personal financial information, their budget, their spending, their saving, thier investing. They will be able to pull any transactions that they have logged in order to get specific information and perform analysis. They will be able to add new transactions for anything in their day to day life, a fast food meal they just bought, money they sent to a savings account, a student loan payment. Each of these transactions will be added to the database associated with their login id.
 
