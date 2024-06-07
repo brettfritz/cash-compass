@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS cashCompass_db;
-CREATE DATABASE cashCompass_db;
+DROP DATABASE IF EXISTS cashcompass_db;
+CREATE DATABASE cashcompass_db;
