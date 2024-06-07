@@ -32,7 +32,7 @@ Additionally, there will be a "predictive purchase" feature where the user can e
 
 - What languages is it written with: HTML, CSS, JavaScript
 
-- What libraries are used: Node.js, Express.js, Handlebars.js, postgresSQL, Sequalize, (*additional library*)
+- What libraries are used: Node.js, Express.js, Handlebars.js, postgresSQL, Sequalize, chart.js
 
 - Other: App deployed to Render.com
 
