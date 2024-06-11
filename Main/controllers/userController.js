@@ -1,21 +1,35 @@
 const router = require('express').Router();
 const { User } = require('../models'); // Ensure this path is correct
 
+// Signup route
 router.post('/signup', async (req, res) => {
   try {
-    const userData = await User.create(req.body);
+    console.log('Request body:', req.body);
+
+    const newUser = await User.create({
+      username: req.body.username,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      income: req.body.income,
+      email: req.body.email,
+      password: req.body.password,
+    });
+
+    console.log('New user created:', newUser);
 
     req.session.save(() => {
-      req.session.userId = userData.id;
-      req.session.loggedIn = true;
+      req.session.user_id = newUser.id;
+      req.session.logged_in = true;
 
-      res.status(200).json(userData);
+      res.status(200).json(newUser);
     });
   } catch (err) {
-    res.status(500).json(err);
+    console.error('Error signing up:', err);
+    res.status(500).json({ message: 'Internal Server Error', error: err });
   }
 });
 
+//login route
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -44,8 +58,9 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// Logout route
 router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
     });
@@ -53,5 +68,6 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
 
 module.exports = router;
