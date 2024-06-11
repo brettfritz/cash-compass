@@ -12,23 +12,33 @@ Transaction.init(
       primaryKey: true,
       autoIncrement: true
     },
-    description: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    amount: {
-      type: DataTypes.FLOAT,
-      allowNull: false
-    },
-    date: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW
-    },
     userId: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
+        key: 'id'
+      }
+    },
+    date: {
+      type: Datatypes.DATE,
+      allowNull: false,
+      defaultValue: Datatypes.NOW
+    },
+    cost:{
+      type: Datatypes.FLOAT,
+      allowNull: false
+    },
+    category_id: {
+      type: Datatype.INTEGER,
+      reference: {
+        model: 'category',
+        key: 'id',
+      }
+    },
+    vender_id: {
+      type: Datatypes.INTEGER,
+      references: {
+        model: 'vendor',
         key: 'id'
       }
     }
