@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Income extends Model {}
+class Session extends Model {}
 
-Income.init(
+Session.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -18,14 +18,13 @@ Income.init(
         key: 'id'
       }
     },
-    amount: {
-      type: DataTypes.FLOAT,
+    login_timestamp: {
+      type: DataTypes.DATE,
       allowNull: false
     },
-    date: {
+    logout_timestamp: {
       type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW
+      allowNull: true
     }
   },
   {
@@ -33,8 +32,8 @@ Income.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'income'
+    modelName: 'session'
   }
 );
 
-module.exports = Income;
+module.exports = Session;

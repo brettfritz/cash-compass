@@ -35,6 +35,19 @@ User.init(
       validate: {
         len: [8]
       }
+    },
+    first_name: {
+      type: Dataypes.STRING,
+      allowNull: false
+    },
+    last_name: {
+      type: Datatypes.STRING,
+      allowNull: false
+    },
+    income: {
+      type: Datatypes.FLOAT,
+      allowNull: false,
+      defaultValue: 0.0
     }
   },
   {
