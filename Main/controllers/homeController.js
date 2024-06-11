@@ -1,5 +1,6 @@
+const express = require('express');
+const { Transaction, User, Income } = require('../models'); // Ensure this path is correct
 const router = require('express').Router();
-const { Transaction, User } = require('../models'); // Ensure this path is correct
 
 router.get('/', async (req, res) => {
   try {
@@ -18,4 +19,28 @@ router.get('/', async (req, res) => {
   }
 });
 
+// GET routes with specific parameters to filter and retrieve the desired information
+router.get('/monthly-spending', async (req, res) => {
+    try {
+        const monthlySpending = await Transaction.findAll({
+          where: { id: req.params.id }
+        });
+        res.status(200).json(monthlySpending);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
+router.get('/monthly-income', async (req, res) => {
+  try {
+      const monthlyIncome = await Income.findAll({
+        where: { id: req.params.id }
+      });
+      res.status(200).json(monthlyIncome);
+  } catch (err) {
+      res.status(400).json(err);
+  }
+});
+
 module.exports = router;
+
