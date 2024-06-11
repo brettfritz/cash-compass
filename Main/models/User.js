@@ -37,15 +37,15 @@ User.init(
       }
     },
     first_name: {
-      type: Dataypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     last_name: {
-      type: Datatypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     income: {
-      type: Datatypes.FLOAT,
+      type: DataTypes.FLOAT,
       allowNull: false,
       defaultValue: 0.0
     }

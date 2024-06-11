@@ -20,23 +20,23 @@ Transaction.init(
       }
     },
     date: {
-      type: Datatypes.DATE,
+      type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: Datatypes.NOW
+      defaultValue: DataTypes.NOW
     },
     cost:{
-      type: Datatypes.FLOAT,
+      type: DataTypes.FLOAT,
       allowNull: false
     },
     category_id: {
-      type: Datatype.INTEGER,
+      type: DataTypes.INTEGER,
       reference: {
         model: 'category',
         key: 'id',
       }
     },
     vender_id: {
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       references: {
         model: 'vendor',
         key: 'id'

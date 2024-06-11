@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../models'); // Ensure this path is correct
+const bcrypt = require('bcrypt');
+
 
 // Signup route
 router.post('/signup', async (req, res) => {
