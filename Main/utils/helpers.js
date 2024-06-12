@@ -1,12 +1,8 @@
-const formatMoney = (amount) => {
-  return `$${amount.toFixed(2)}`;
-};
-
-const formatDate = (date) => {
-  return new Date(date).toLocaleDateString();
-};
-
 module.exports = {
-  formatMoney,
-  formatDate
+  format_amount: (amount) => {
+      return parseFloat(amount).toFixed(2);
+  },
+  format_date: (date) => {
+      return new Date(date).toLocaleDateString();
+  }
 };

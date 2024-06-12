@@ -1,5 +1,5 @@
 const sequelize = require('../config/connection');
-const { User, Transaction, Category, Vendor, Budget } = require('../models');
+const { User, Transaction, Category, Vendor, Budget, Income } = require('../models');
 
 const userData = require('./userData.json');
 const transactionData = require('./transactionData.json');
@@ -23,7 +23,7 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  await Budget.bulkCreate(incomeData, {
+  await Income.bulkCreate(incomeData, {
     returning: true,
   });
 
