@@ -1,24 +1,26 @@
-<!-- Loop over each object in the projects array -->
-{{#each transactions as |transaction| }}
-<div class="row mb-4 project">
-  <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/project/{{transaction.id}}">{{transaction.name}}</a>
-    </h2>
-    <p>
-      <span for="img" aria-label="money">💲</span>
-      <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount income.needed_funding}}</span>
-      needed!
-    </p>
-    <p>Created by {{transaction.user.name}} on {{format_date transaction.date_created}}</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Personal Finance Tracker</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div class="d-flex align-items-start justify-content-start text-white p-3" style="height: 100vh;">
+    <div class="text-area p-4" style="background: rgba(0, 0, 0, 0.5); border-radius: 10px;">
+      <h1>Welcome to Cash Compass!</h1>
+      <p>We aim you towards your path to financial freedom by letting you manage your income, expenses, and savings all in one place.</p>
+      <a href="/signup" class="btn btn-primary mt-3">Sign Up Now</a>
+    </div>
   </div>
-  <div class="col-md-7">
-    <p>
-      {{transaction.description}}
-    </p>
-  </div>
-</div>
-{{/each}}
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
