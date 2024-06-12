@@ -1,6 +1,6 @@
-const express = require('express');
 const { Transaction, User, Income } = require('../models'); // Ensure this path is correct
 const router = require('express').Router();
+const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
@@ -39,6 +39,31 @@ router.get('/monthly-income', async (req, res) => {
       res.status(200).json(monthlyIncome);
   } catch (err) {
       res.status(400).json(err);
+  }
+});
+
+router.get('/login', (req, res) => {
+  res.render('login'); // Make sure this matches the login.handlebars file
+});
+
+router.get('/signup', (req, res) => {
+  res.render('signup');
+});
+
+router.get('/profile', withAuth, async (req, res) => {
+  try {
+      const userData = await User.findByPk(req.session.user_id, {
+          attributes: { exclude: ['password'] },
+      });
+
+      const user = userData.get({ plain: true });
+
+      res.render('profile', {
+          user,
+          logged_in: true
+      });
+  } catch (err) {
+      res.status(500).json(err);
   }
 });
 

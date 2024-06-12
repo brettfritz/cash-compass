@@ -1,7 +1,7 @@
 [
     {
       "date": "2024-06-10",
-      "amount": 100.50,
+      "cost": 100.50,
       "category_id": 1,
       "vendor_id": 1,
       "user_id": 1,
@@ -9,7 +9,7 @@
     },
     {
       "date": "2023-06-10",
-      "amount": 200.00,
+      "cost": 200.00,
       "category_id": 2,
       "vendor_id": 2,
       "user_id": 2,

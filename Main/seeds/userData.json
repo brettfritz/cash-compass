@@ -1,12 +1,16 @@
 [
   {
     "username": "johndoe",
+    "first_name": "John",
+    "last_name": "Doe",
     "email": "johndoe@example.com",
     "password": "password123",
     "income": 5000
   },
   {
     "username": "janedoe",
+    "first_name": "Jane",
+    "last_name": "Doe",
     "email": "janedoe@example.com",
     "password": "password456",
     "income": 6000

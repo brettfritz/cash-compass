@@ -60,6 +60,35 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// Profile update route
+router.put('/profile', async (req, res) => {
+  try {
+      const updatedData = {
+          username: req.body.username,
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          email: req.body.email,
+          income: req.body.income,
+          password: req.body.password,
+      };
+
+      if (req.body.password) {
+          updatedData.password = await bcrypt.hash(req.body.password, 10);
+      }
+
+      const user = await User.update(updatedData, {
+          where: {
+              id: req.session.user_id,
+          },
+      });
+
+      res.status(200).json(user);
+  } catch (err) {
+      res.status(500).json(err);
+  }
+});
+
+
 // Logout route
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
