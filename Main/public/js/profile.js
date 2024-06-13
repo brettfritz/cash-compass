@@ -9,9 +9,9 @@ const updateProfileHandler = async (event) => {
   const username = document.querySelector('#username').value.trim();
 
   if (firstName && lastName && email && income && password && username) {
-      const response = await fetch('/api/users/profile', {
+      const response = await fetch('api//users/profile', {
           method: 'PUT',
-          body: JSON.stringify({ firstName, lastName, email, income, password, username }),
+          body: JSON.stringify({ firstName, lastName, email, income, password, username}),
           headers: { 'Content-Type': 'application/json' },
       });
 

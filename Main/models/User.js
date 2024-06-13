@@ -36,13 +36,15 @@ User.init(
         len: [8]
       }
     },
-    first_name: {
+    firstName: {
       type: DataTypes.STRING,
       allowNull: false,
+      field: 'first_name',
     },
-    last_name: {
+    lastName: {
       type: DataTypes.STRING,
       allowNull: false,
+      field: 'last_name'
     },
     income: {
       type: DataTypes.FLOAT,
