@@ -1,24 +1,41 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
-}
-
-.no-button {
-  background: none;
-  border: none;
+html, body {
+  height: 100%;
+  margin: 0;
   padding: 0;
-  cursor: pointer;
-  color: #1b89bc;
-  text-decoration: none;
-  font-size: 100%;
+  background-image: url('/images/loggedOutHomeBackground.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-.no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
+.text-area {
+  max-width: 400px;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+/* Adjust the size of the main Cash Compass text */
+.navbar-brand {
+  font-size: 2.5rem; /* Adjust the font size as needed */
+  color: #fff; /* Set text color to white */
 }
+
+/* Adjust the background color and opacity of the primary button */
+.btn-primary {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  border-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+}
+
+/* Adjust the background color and opacity of the navbar */
+.navbar {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(10px); /* Apply a blur effect for better translucency */
+  opacity: 0.5;
+}
+

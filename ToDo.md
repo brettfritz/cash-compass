@@ -6,7 +6,7 @@
 
 # Configurations
 
-## Connections
+## Connections (DONE)
 - make the connection.js 
 - needs to import sequalize and dotenv packages
 - configure Sequalize to connect to postgres using the environment variables
@@ -37,15 +37,15 @@
 ### Reports
 - GET routes with specific parameters to filter and retireve the desired information (eg. monthly spending, spending by category, etc.)
 
-# Database
+# Database (DONE)
 - set up database with PostgreSQL and Sequalize ORM
 
-## Schema
+## Schema (DONE)
 - schema that creates the cashCompass_db
 
 # Seeds
 
-## Transactions
+## Transactions (DONE)
 - create a transactions.json seed that we can use for testing.
     - We can make up transactions or we can make a seed with a typical whole month's worth of expenses 
     - transactions seed needs the following
@@ -56,11 +56,11 @@
         - Description
         - Amount
 
-## Categories
+## Categories (DONE)
 - create a categories.json seed that has all of the basic categories for a budget with the following
     - category ID
     - Category Name
-## Users
+## Users (DONE)
 - Create a users.json seed that we can use for testing with fake names. they need the following:
  - User ID (primary Key)
     - First Name
@@ -69,35 +69,35 @@
     - Password
     - Income
 
-## Models
+## Models (DONE)
 - Make the tables for the budget
     - Need tables for the following:
-        - Users
+        - Users (DONE)
             - User ID (primary Key)
             - First Name
             - Last Name
             - Email
             - Password (hashed)
             - Income
-        - Transactions
+        - Transactions (DONE)
             - Transaction ID (primary key)
             - User ID (foreign key)
             - Date
             - Cost
             - Category (foreign key )
             - Vendor ID (foreign key)
-        - Categories
+        - Categories (DONE)
             - Category ID (primary key)
             - Category Name
-        - Vendors
+        - Vendors (DONE)
             - Vendor ID (primary key)
             - Vendor Name
-        - Budget (income)
+        - Budget (income)(DONE)
             - Budget ID (primary Key)
             - User ID (foreign key)
             - Amount
             - Date
-        - Sessions
+        - Sessions (DONE)
             - User ID (foreign key)
             - Login timestamp
             - Logout timestamp
@@ -121,7 +121,7 @@
 - custom helper for formatting the money on the backed to make it look the way that we want on the front end
 
 
-## Authentication
+## Authentication (DONE)
 - need to set up login.js and logout.js
     - Sign up
         - needs to include a form to handle all of inputs needed for the users model
