@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   
       if (username && email && password && income && lastName && firstName) {
         try {
-          const response = await fetch('/api/users/signup', {
+          const response = await fetch('/users/signup', {
             method: 'POST',
             body: JSON.stringify({ username, email, password }),
             headers: { 'Content-Type': 'application/json' },

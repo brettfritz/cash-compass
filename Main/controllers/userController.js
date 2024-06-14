@@ -69,7 +69,6 @@ router.put('/profile', async (req, res) => {
           lastName: req.body.lastName,
           email: req.body.email,
           income: req.body.income,
-          password: req.body.password,
       };
 
       if (req.body.password) {
