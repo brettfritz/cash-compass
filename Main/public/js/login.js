@@ -12,7 +12,7 @@ const loginFormHandler = async (event) => {
       });
 
       if (response.ok) {
-          document.location.replace('/profile'); // Adjust to the correct path after login
+          document.location.replace('/dashboard'); // Adjust to the correct path after login
       } else {
           alert('Failed to log in.');
       }
