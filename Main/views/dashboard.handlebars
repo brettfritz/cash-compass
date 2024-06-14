@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Cash Compass</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div class="d-flex flex-column min-vh-100">
+    {{> header}}
+    <main class="container my-5">
+      <div class="row">
+        <!-- User Overview -->
+        <div class="col-lg-4 mb-4">
+          <div class="card bg-light mb-3">
+            <div class="card-header">Account Overview</div>
+            <div class="card-body">
+              <h5 class="card-title">Welcome, {{user.firstName}}!</h5>
+              <p class="card-text">Total income this month: ${{user.total_income}}.</p>
+              <p class="card-text">Total expenses this month: ${{user.total_expenses}}.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Transaction Categories</h2>
+        <canvas id="transactionsChart"></canvas>
+
+        <!-- Recent Transactions -->
+        <div class="col-lg-8 mb-4">
+          <div class="card bg-light mb-3">
+            <div class="card-header">Recent Transactions</div>
+            <div class="card-body">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Vendor</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each transactions}}
+                  <tr>
+                    <td>{{this.date}}</td>
+                    <td>{{this.vender_id.vendor}}</td>
+                    <td>{{this.category_id.category}}</td>
+                    <td>${{this.cost}}</td>
+                  </tr>
+                  {{else}}
+                  <tr>
+                    <td colspan="4" class="text-center">No recent transactions found.</td>
+                  </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Quick Actions -->
+        <div class="col-lg-4 mb-4">
+          <div class="card bg-light mb-3">
+            <div class="card-header">Quick Actions</div>
+            <div class="card-body">
+              <a href="/add-transaction" class="btn btn-primary btn-block">Add Transaction</a>
+              <a href="/view-transactions" class="btn btn-secondary btn-block">View All Transactions</a>
+              <a href="/profile" class="btn btn-info btn-block">Update Profile</a>
+            </div>
+          </div>
+        </div>
+
+        </div>
+    </main>
+    <footer class="bg-dark text-white text-center py-3 mt-auto">
+      <div class="container">
+        <p>&copy; 2024 Cash Compass. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script id="categorized-transactions-data" type="application/json">{{json categorizedTransactions}}</script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/dashboard.js"></script>
+</body>
+
+</html>
+
+
+
+<h2>Transaction Categories</h2>
+<canvas id="transactionsChart"></canvas>
