@@ -1,23 +1,23 @@
 [
-    {
-      "userId": 1,
-      "loginTimestamp": "2024-06-01T08:00:00.000Z",
-      "logoutTimestamp": "2024-06-01T12:00:00.000Z"
-    },
-    {
-      "userId": 2,
-      "loginTimestamp": "2024-06-02T09:30:00.000Z",
-      "logoutTimestamp": "2024-06-02T10:30:00.000Z"
-    },
-    {
-      "userId": 1,
-      "loginTimestamp": "2024-06-03T14:00:00.000Z",
-      "logoutTimestamp": "2024-06-03T18:00:00.000Z"
-    },
-    {
-      "userId": 3,
-      "loginTimestamp": "2024-06-04T08:15:00.000Z",
-      "logoutTimestamp": "2024-06-04T08:16:00.000Z"
-    }
-  ]
+  {
+    "userId": 1,
+    "loginTimestamp": "2024-06-01T08:00:00.000Z",
+    "logoutTimestamp": "2024-06-01T12:00:00.000Z"
+  },
+  {
+    "userId": 2,
+    "loginTimestamp": "2024-06-02T09:30:00.000Z",
+    "logoutTimestamp": "2024-06-02T10:30:00.000Z"
+  },
+  {
+    "userId": 1,
+    "loginTimestamp": "2024-06-03T14:00:00.000Z",
+    "logoutTimestamp": "2024-06-03T18:00:00.000Z"
+  },
+  {
+    "userId": 3,
+    "loginTimestamp": "2024-06-04T08:15:00.000Z",
+    "logoutTimestamp": "2024-06-04T08:16:00.000Z"
+  }
+]
   

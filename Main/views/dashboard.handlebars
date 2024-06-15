@@ -18,9 +18,9 @@
           <div class="card bg-light mb-3">
             <div class="card-header">Account Overview</div>
             <div class="card-body">
-              <h5 class="card-title">Welcome, {{user.firstName}}!</h5>
-              <p class="card-text">Total income this month: ${{user.totalIncome}}.</p>
-              <p class="card-text">Total expenses this month: ${{user.totalExpenses}}.</p>
+              <h5 class="card-title">Welcome, {{users.firstName}}!</h5>
+              <p class="card-text">Total income this month: ${{users.totalIncome}}.</p>
+              <p class="card-text">Total expenses this month: ${{users.totalExpenses}}.</p>
             </div>
           </div>
         </div>
@@ -50,8 +50,8 @@
                   {{#each transactions}}
                   <tr>
                     <td>{{this.date}}</td>
-                    <td>{{this.vendorId.vendor}}</td>
-                    <td>{{this.categoryId.category}}</td>
+                    <td>{{this.vendorId.name}}</td>
+                    <td>{{this.categoryId.name}}</td>
                     <td>${{this.cost}}</td>
                   </tr>
                   {{else}}
@@ -73,7 +73,7 @@
             <div class="card-header">Quick Actions</div>
             <div class="card-body">
               <a href="/add-transaction" class="btn btn-primary btn-block">Add Transaction</a>
-              <a href="/users/transaction" class="btn btn-secondary btn-block">View All Transactions</a>
+              <a href="/transactions" class="btn btn-secondary btn-block">View All Transactions</a>
               <a href="/users/profile" class="btn btn-info btn-block">Update Profile</a>
             </div>
           </div>

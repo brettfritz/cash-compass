@@ -17,7 +17,15 @@
     },
     {
       "date": "2023-06-10",
-      "cost": 200.00,
+      "cost": 169.00,
+      "categoryId": 2,
+      "vendorId": 2,
+      "userId": 3,
+      "description": "Electronics purchase"
+    },
+    {
+      "date": "2023-06-10",
+      "cost": 420.00,
       "categoryId": 2,
       "vendorId": 2,
       "userId": 3,

@@ -49,8 +49,8 @@ router.post('/signup', async (req, res) => {
     });
 
     req.session.save(() => {
-      req.session.user_id = newUser.id;
-      req.session.logged_in = true;
+      req.session.userId = newUser.id;
+      req.session.loggedIn = true;
 
       res.status(200).json(newUser);
     });
@@ -93,7 +93,7 @@ router.post('/login', async (req, res) => {
 // Profile update route
 router.put('/profile', async (req, res) => {
   try {
-    const userData = await User.findByPk(req.session.userID, {
+    const userData = await User.findByPk(req.session.userId, {
       attributes: { exclude: ['password'] },
     });
     console.log(userData);
