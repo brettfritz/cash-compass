@@ -2,12 +2,17 @@
     {
       "amount": 5000,
       "date": "2024-06-10",
-      "user_id": 1
+      "userId": 1
     },
     {
       "amount": 6000,
       "date": "2024-06-10",
-      "user_id": 2
+      "userId": 2
+    },
+    {
+      "amount": 5000,
+      "date": "2024-06-10",
+      "userId": 3
     }
   ]
   

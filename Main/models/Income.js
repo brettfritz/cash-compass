@@ -11,7 +11,7 @@ Income.init(
       primaryKey: true,
       autoIncrement: true
     },
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',

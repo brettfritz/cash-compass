@@ -1,11 +1,12 @@
 const sequelize = require('../config/connection');
-const { User, Transaction, Category, Vendor, Budget, Income } = require('../models');
+const { User, Transaction, Category, Vendor, Session, Income } = require('../models');
 
 const userData = require('./userData.json');
 const transactionData = require('./transactionData.json');
 const categoryData = require('./categoryData.json');
 const vendorData = require('./vendorData.json');
 const incomeData = require('./incomeData.json');
+const sessionData = require('./sessionData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });

@@ -11,7 +11,6 @@
 
 <body>
   <div class="d-flex flex-column min-vh-100">
-    {{> header}}
     <main class="container my-5">
       <div class="row">
         <!-- User Overview -->
@@ -20,8 +19,8 @@
             <div class="card-header">Account Overview</div>
             <div class="card-body">
               <h5 class="card-title">Welcome, {{user.firstName}}!</h5>
-              <p class="card-text">Total income this month: ${{user.total_income}}.</p>
-              <p class="card-text">Total expenses this month: ${{user.total_expenses}}.</p>
+              <p class="card-text">Total income this month: ${{user.totalIncome}}.</p>
+              <p class="card-text">Total expenses this month: ${{user.totalExpenses}}.</p>
             </div>
           </div>
         </div>
@@ -51,8 +50,8 @@
                   {{#each transactions}}
                   <tr>
                     <td>{{this.date}}</td>
-                    <td>{{this.vender_id.vendor}}</td>
-                    <td>{{this.category_id.category}}</td>
+                    <td>{{this.vendorId.vendor}}</td>
+                    <td>{{this.categoryId.category}}</td>
                     <td>${{this.cost}}</td>
                   </tr>
                   {{else}}
@@ -74,8 +73,8 @@
             <div class="card-header">Quick Actions</div>
             <div class="card-body">
               <a href="/add-transaction" class="btn btn-primary btn-block">Add Transaction</a>
-              <a href="/view-transactions" class="btn btn-secondary btn-block">View All Transactions</a>
-              <a href="/profile" class="btn btn-info btn-block">Update Profile</a>
+              <a href="/users/transaction" class="btn btn-secondary btn-block">View All Transactions</a>
+              <a href="/users/profile" class="btn btn-info btn-block">Update Profile</a>
             </div>
           </div>
         </div>
@@ -88,7 +87,7 @@
     </footer>
   </div>
 
-  {{#if logged_in}}
+  {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

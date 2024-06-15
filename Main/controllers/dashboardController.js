@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, async (req, res) => {
 
     try {
-        const userData = await User.findByPk(req.session.user_id, {
+        const userData = await User.findByPk(req.session.userId, {
             attributes: { exclude: ['password'] },
             include: [{ model: Transaction }, { model: Income }],
         });
@@ -13,12 +13,12 @@ router.get('/', withAuth, async (req, res) => {
         const user = userData
 
         const transactions = await Transaction.findAll({
-            where: { user_id: req.session.user_id },
+            where: { user_id: req.session.userId },
             include: [{ model: Category }]
         });
         console.log("green");
         const income = await Income.findAll({
-            where: { user_id: req.session.user_id }
+            where: { user_id: req.session.userId }
         });
 
         // Calculate total transactions and income

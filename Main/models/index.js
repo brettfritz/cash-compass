@@ -7,48 +7,48 @@ const Session = require('./Session');
 
 // Associations
 User.hasMany(Transaction, {
-  foreignKey: 'user_id',
+  foreignKey: 'userId',
   onDelete: 'CASCADE'
 });
 
 Transaction.belongsTo(User, {
-  foreignKey: 'user_id'
+  foreignKey: 'userId'
 });
 
 Category.hasMany(Transaction, {
-  foreignKey: 'category_id',
+  foreignKey: 'categoryId',
   onDelete: 'CASCADE'
 });
 
 Transaction.belongsTo(Category, {
-  foreignKey: 'category_id'
+  foreignKey: 'categoryId'
 });
 
 Vendor.hasMany(Transaction, {
-  foreignKey: 'vendor_id',
+  foreignKey: 'vendorId',
   onDelete: 'CASCADE'
 });
 
 Transaction.belongsTo(Vendor, {
-  foreignKey: 'vendor_id'
+  foreignKey: 'vendorId'
 });
 
 User.hasMany(Income, {
-  foreignKey: 'user_id',
+  foreignKey: 'userId',
   onDelete: 'CASCADE'
 });
 
 Income.belongsTo(User, {
-  foreignKey: 'user_id'
+  foreignKey: 'userId'
 });
 
 User.hasMany(Session, {
-  foreignKey: 'user_id',
+  foreignKey: 'userId',
   onDelete: 'CASCADE'
 });
 
 Session.belongsTo(User, {
-  foreignKey: 'user_id'
+  foreignKey: 'userId'
 });
 
 module.exports = {
