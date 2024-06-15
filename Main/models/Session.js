@@ -11,18 +11,18 @@ Session.init(
       primaryKey: true,
       autoIncrement: true
     },
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
         key: 'id'
       }
     },
-    login_timestamp: {
+    loginTimestamp: {
       type: DataTypes.DATE,
       allowNull: false
     },
-    logout_timestamp: {
+    logoutTimestamp: {
       type: DataTypes.DATE,
       allowNull: true
     }

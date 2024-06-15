@@ -14,5 +14,13 @@
     "email": "janedoe@example.com",
     "password": "password456",
     "income": 6000
+  },
+  {
+    "username": "dev",
+    "firstName": "Brett",
+    "lastName": "Fritz",
+    "email": "dev@mail.com",
+    "password": "password123",
+    "income": 5000
   }
 ]

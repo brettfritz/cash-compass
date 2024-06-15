@@ -2,6 +2,10 @@ const { User } = require('../models'); // Ensure this path is correct
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
 
+router.get('/', (req, res) => {
+  res.render('home');
+});
+
 router.get('/login', (req, res) => {
   res.render('login'); // Make sure this matches the login.handlebars file
 });

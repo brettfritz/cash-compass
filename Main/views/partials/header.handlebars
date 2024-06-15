@@ -1,8 +1,14 @@
 <nav class="navbar navbar-expand-lg navbar-light text-dark">
   <div class="container">
+    {{#if loggedIn}}
+    <a class="navbar-brand" href="/dashboard">
+      <span role="img" aria-label="money" class="dark">💸</span> Cash Compass
+    </a>
+    {{else}}
     <a class="navbar-brand" href="/">
       <span role="img" aria-label="money" class="dark">💸</span> Cash Compass
     </a>
+    {{/if}}
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,9 +17,9 @@
         <h4 class="mt-1 d-lg-none">Guiding You Towards Financial Freedom</h4>
       </div>
       <div class="navbar-nav ml-auto">
-        {{#if logged_in}}
-          <a class="nav-link" href="/profile">Profile</a>
-          <a class="nav-link" href="/transactions">Transactions</a>
+        {{#if loggedIn}}
+          <a class="nav-link" href="/users/profile">Profile</a>
+          <a class="nav-link" href="/users/transactions">Transactions</a>
           <button class="btn btn-danger" id="logout">Logout</button>
         {{else}}
           <a class="nav-link" href="/login">Login</a>

@@ -39,12 +39,12 @@ User.init(
     firstName: {
       type: DataTypes.STRING,
       allowNull: false,
-      field: 'first_name',
+      field: 'firstName',
     },
     lastName: {
       type: DataTypes.STRING,
       allowNull: false,
-      field: 'last_name'
+      field: 'lastName'
     },
     income: {
       type: DataTypes.FLOAT,

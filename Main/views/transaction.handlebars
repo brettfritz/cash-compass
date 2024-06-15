@@ -32,8 +32,8 @@
             {{#each transactions}}
             <tr>
               <td>{{this.date}}</td>
-              <td>{{this.vender_id.name}}</td>
-              <td>{{this.category_id.name}}</td>
+              <td>{{this.vendorId.name}}</td>
+              <td>{{this.categoryId.name}}</td>
               <td>${{this.cost}}</td>
               <td>
                 <a href="/edit-transaction/{{this.id}}" class="btn btn-warning btn-sm">Edit</a>
@@ -56,7 +56,7 @@
     </footer>
   </div>
 
-  {{#if logged_in}}
+  {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}
   <script src="/js/delete-transaction.js"></script>

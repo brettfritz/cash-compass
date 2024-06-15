@@ -28,14 +28,18 @@ Transaction.init(
       type: DataTypes.FLOAT,
       allowNull: false
     },
-    category_id: {
+    description:{
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
+    categoryId: {
       type: DataTypes.INTEGER,
       reference: {
         model: 'category',
         key: 'id',
       }
     },
-    vender_id: {
+    vendorId: {
       type: DataTypes.INTEGER,
       references: {
         model: 'vendor',
