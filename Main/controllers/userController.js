@@ -52,9 +52,11 @@ router.post('/login', async (req, res) => {
       req.session.userId = userData.id;
       req.session.loggedIn = true;
       
-      res.json({ user: userData, message: 'You are now logged in!' });
+      res.render('dashboard', {
+        userData,
+        logged_in: true
+      });
     });
-
   } catch (err) {
     res.status(400).json(err);
   }
