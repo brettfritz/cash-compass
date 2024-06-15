@@ -39,7 +39,7 @@ User.init(
     firstName: {
       type: DataTypes.STRING,
       allowNull: false,
-      field: 'firstName',
+      field: 'firstName'
     },
     lastName: {
       type: DataTypes.STRING,
