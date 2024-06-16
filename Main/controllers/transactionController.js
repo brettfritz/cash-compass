@@ -106,4 +106,32 @@ router.delete('/:id', withAuth, async (req, res) => {
     }
 });
 
+// Endpoint to fetch transaction data for Chart.js
+router.get('/data', withAuth, async (req, res) => {
+    try {
+        const userId = req.session.userId;
+        if (!userId) {
+            throw new Error('User ID is not set in the session.');
+        }
+
+        const transactionData = await Transaction.findAll({
+            where: { userId: userId },
+            include: [
+                { model: Vendor, attributes: ['name'] },
+                { model: Category, attributes: ['name'] }
+            ]
+        });
+
+        const transactions = transactionData.map(transaction => transaction.toJSON());
+
+        res.json(transactions);
+    } catch (err) {
+        console.error('Error fetching transaction data:', err);
+        res.status(500).json(err);
+    }
+});
+
+module.exports = router;
+
+
 module.exports = router;
