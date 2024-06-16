@@ -18,9 +18,9 @@
           <div class="card bg-light mb-3">
             <div class="card-header">Account Overview</div>
             <div class="card-body">
-              <h5 class="card-title">Welcome, {{users.firstName}}!</h5>
-              <p class="card-text">Total income this month: ${{users.totalIncome}}.</p>
-              <p class="card-text">Total expenses this month: ${{users.totalExpenses}}.</p>
+              <h5 class="card-title">Welcome, {{user.firstName}}!</h5>
+              <p class="card-text">Total income this month: ${{user.income}}.</p>
+              <p class="card-text">Total expenses this month: ${{user.totalExpenses}}.</p>
             </div>
           </div>
         </div>
@@ -50,8 +50,8 @@
                   {{#each transactions}}
                   <tr>
                     <td>{{this.date}}</td>
-                    <td>{{this.vendorId.name}}</td>
-                    <td>{{this.categoryId.name}}</td>
+                    <td>{{this.vendorId}}</td>
+                    <td>{{this.categoryId}}</td>
                     <td>${{this.cost}}</td>
                   </tr>
                   {{else}}
@@ -86,10 +86,6 @@
       </div>
     </footer>
   </div>
-
-  {{#if loggedIn}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -10,15 +10,14 @@ router.get('/', withAuth, async (req, res) => {
             include: [{ model: Transaction }, { model: Income }],
         });
 
-        const user = userData
+        const user = userData.toJSON();
 
         const transactions = await Transaction.findAll({
-            where: { user_id: req.session.userId },
+            where: { userId: req.session.userId },
             include: [{ model: Category }]
         });
-        console.log("green");
         const income = await Income.findAll({
-            where: { user_id: req.session.userId }
+            where: { userId: req.session.userId }
         });
 
         // Calculate total transactions and income
@@ -27,28 +26,31 @@ router.get('/', withAuth, async (req, res) => {
         const balance = totalIncome - totalTransactions;
 
         // Categorize transactions
-        const categorizedTransactions = {};
-        transactions.forEach(transaction => {
-            const category = transaction.category.name;
-            if (!categorizedTransactions[category]) {
-                categorizedTransactions[category] = 0;
-            }
-            categorizedTransactions[category] += transaction.cost;
-        });
-
+        // const categorizedTransactions = {};
+        // transactions.forEach(transaction => {
+        //     const category = transaction.category.name;
+        //     if (!categorizedTransactions[category]) {
+        //         categorizedTransactions[category] = 0;
+        //     }
+        //     categorizedTransactions[category] += transaction.cost;
+        // });
         res.render('dashboard', {
-            user,
+            loggedIn: req.session.loggedIn,
+            user,  // assuming you store user data in session
+            // vendor: vendor.name,
+            // category: category.name,
             transactions: transactions.map(transaction => transaction.get({ plain: true })),
             income: income.map(inc => inc.get({ plain: true })),
             totalTransactions,
             totalIncome,
             balance,
-            categorizedTransactions,
-            logged_in: true
-        });
+            // categorizedTransactions,
+          });
     } catch (err) {
         res.status(500).json(err);
     }
 });
+
+
 
 module.exports = router;

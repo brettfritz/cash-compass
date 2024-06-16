@@ -1,3 +1,4 @@
+
 module.exports = {
   format_amount: (amount) => {
       return parseFloat(amount).toFixed(2);

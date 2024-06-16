@@ -1,7 +1,43 @@
 const express = require('express');
-const { Transaction, User } = require('../models');
+const { Transaction, User, Vendor, Category } = require('../models');
 const router = express.Router();
 const withAuth = require('../utils/auth');
+
+router.get('/', withAuth, async (req, res) => {
+    try {
+        console.log('Session Information:', req.session);
+
+        const userId = req.session.userId;
+        if (!userId) {
+            throw new Error('User ID is not set in the session.');
+        }
+        
+        console.log(`Fetching transactions for user ID: ${userId}`);
+
+        const transactionData = await Transaction.findAll({
+            where: { userId: userId },
+            include: [
+                { model: Vendor, attributes: ['name'] },
+                { model: Category, attributes: ['name'] }
+            ]
+        });
+
+        const transactions = transactionData.map(transaction => transaction.toJSON());
+        console.log(`Fetched ${transactions.length} transactions from the database for user ID: ${userId}`);
+
+        res.render('transaction', {
+            loggedIn: req.session.loggedIn,
+            transactions,
+        });
+    } catch (err) {
+        console.error('Error fetching transactions:', err);
+        res.status(500).json(err);
+    }
+});
+
+
+
+
 
 // POST route for new transactions
 router.post('/', withAuth, async (req, res) => {
@@ -34,33 +70,5 @@ router.delete('/:id', withAuth, async (req, res) => {
         res.status(400).json(err);
     }
 });
-
-
-//not working/untested route for getting the transactions for a user
-router.get('/', withAuth, async (req, res) => {
-    try {
-      const userData = await User.findByPk(req.session.userId, {
-        attributes: { exclude: ['password'] },
-      });
-      const user = userData;
-  
-      res.render('transaction', {
-        user,
-        logged_in: true,
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
-
-// GET routes for seeing all transactions, and filtering by date, category, etc
-// router.get('/', withAuth, async (req, res) => {
-//     try {
-//         const transactions = await Transaction.findAll();
-//         res.status(200).json(transactions);
-//     } catch (err) {
-//         res.status(400).json(err);
-//     }
-// });
 
 module.exports = router;

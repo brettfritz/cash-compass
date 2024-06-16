@@ -3,10 +3,30 @@
     "name": "Groceries"
   },
   {
-    "name": "Electronics"
+    "name": "Utilities"
   },
   {
-    "name": "Utilities"
+    "name": "Restaurants"
+  },
+  {
+    "name": "Transportation"
+  },
+  {
+    "name": "Healthcare"
+  },
+  {
+    "name": "Entertainment"
+  },
+  {
+    "name": "Clothing"
+  },
+  {
+    "name": "Education"
+  },
+  {
+    "name": "Travel"
+  },
+  {
+    "name": "Personal Care"
   }
 ]
-  
