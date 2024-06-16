@@ -32,14 +32,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Middleware to set loggedIn status and user data
-function setLoggedInStatus(req, res, next) {
-    res.locals.loggedIn = req.session.loggedIn;
-    res.locals.user = req.session.user;
-    next();
-}
+// // Middleware to set loggedIn status and user data
+// function setLoggedInStatus(req, res, next) {
+//     res.locals.loggedIn = req.session.loggedIn;
+//     res.locals.user = req.session.user;
+//     next();
+// }
 
-app.use(setLoggedInStatus);
+// app.use(setLoggedInStatus);
 
 app.use(routes);
 
