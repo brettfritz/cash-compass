@@ -19,8 +19,9 @@
       <div class="navbar-nav ml-auto">
         {{#if loggedIn}}
           <a class="nav-link" href="/users/profile">Profile</a>
-          <a class="nav-link" href="/users/transactions">Transactions</a>
+          <a class="nav-link" href="/transactions">Transactions</a>
           <button class="btn btn-danger" id="logout">Logout</button>
+          <script src="/js/logout.js"></script>
         {{else}}
           <a class="nav-link" href="/login">Login</a>
           <a class="nav-link" href="/signup">Sign Up</a>

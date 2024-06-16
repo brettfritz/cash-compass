@@ -1,3 +1,6 @@
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     // Retrieve categorized transactions data from the hidden script tag
     const categorizedTransactionsData = document.getElementById('categorized-transactions-data').textContent;

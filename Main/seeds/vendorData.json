@@ -1,12 +1,124 @@
 [
   {
-    "name": "Walmart"
+    "name": "Kroger",
+    "categoryId": 1
   },
   {
-    "name": "Best Buy"
+    "name": "Whole Foods",
+    "categoryId": 1
   },
   {
-    "name": "Amazon"
+    "name": "Trader Joe's",
+    "categoryId": 1
+  },
+  {
+    "name": "Duke Energy",
+    "categoryId": 2
+  },
+  {
+    "name": "Comcast",
+    "categoryId": 2
+  },
+  {
+    "name": "AT&T",
+    "categoryId": 2
+  },
+  {
+    "name": "McDonald's",
+    "categoryId": 3
+  },
+  {
+    "name": "Chick-fil-A",
+    "categoryId": 3
+  },
+  {
+    "name": "Starbucks",
+    "categoryId": 3
+  },
+  {
+    "name": "Uber",
+    "categoryId": 4
+  },
+  {
+    "name": "Lyft",
+    "categoryId": 4
+  },
+  {
+    "name": "Greyhound",
+    "categoryId": 4
+  },
+  {
+    "name": "CVS",
+    "categoryId": 5
+  },
+  {
+    "name": "Walgreens",
+    "categoryId": 5
+  },
+  {
+    "name": "Mayo Clinic",
+    "categoryId": 5
+  },
+  {
+    "name": "AMC Theatres",
+    "categoryId": 6
+  },
+  {
+    "name": "Netflix",
+    "categoryId": 6
+  },
+  {
+    "name": "Spotify",
+    "categoryId": 6
+  },
+  {
+    "name": "Nike",
+    "categoryId": 7
+  },
+  {
+    "name": "Adidas",
+    "categoryId": 7
+  },
+  {
+    "name": "H&M",
+    "categoryId": 7
+  },
+  {
+    "name": "University of XYZ Bookstore",
+    "categoryId": 8
+  },
+  {
+    "name": "Udemy",
+    "categoryId": 8
+  },
+  {
+    "name": "Coursera",
+    "categoryId": 8
+  },
+  {
+    "name": "Expedia",
+    "categoryId": 9
+  },
+  {
+    "name": "Booking.com",
+    "categoryId": 9
+  },
+  {
+    "name": "Airbnb",
+    "categoryId": 9
+  },
+  {
+    "name": "Sephora",
+    "categoryId": 10
+  },
+  {
+    "name": "Ulta",
+    "categoryId": 10
+  },
+  {
+    "name": "The Body Shop",
+    "categoryId": 10
   }
 ]
+
   

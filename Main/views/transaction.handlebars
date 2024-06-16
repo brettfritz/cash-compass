@@ -7,11 +7,11 @@
   <title>Transactions | Cash Compass</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/transaction.css">
 </head>
 
 <body>
   <div class="d-flex flex-column min-vh-100">
-    {{> header}}
     <main class="container my-5">
       <h2 class="mb-4">Your Transactions</h2>
       <div class="mb-4">
@@ -23,6 +23,7 @@
             <tr>
               <th scope="col">Date</th>
               <th scope="col">Description</th>
+              <th scope="col">Vendor</th>
               <th scope="col">Category</th>
               <th scope="col">Amount</th>
               <th scope="col">Actions</th>
@@ -32,8 +33,9 @@
             {{#each transactions}}
             <tr>
               <td>{{this.date}}</td>
-              <td>{{this.vendorId.name}}</td>
-              <td>{{this.categoryId.name}}</td>
+              <td>{{this.description}}</td>
+              <td>{{this.vendor.name}}</td>
+              <td>{{this.category.name}}</td>
               <td>${{this.cost}}</td>
               <td>
                 <a href="/edit-transaction/{{this.id}}" class="btn btn-warning btn-sm">Edit</a>
@@ -42,18 +44,13 @@
             </tr>
             {{else}}
             <tr>
-              <td colspan="5" class="text-center">No transactions found.</td>
+              <td colspan="6" class="text-center">No transactions found.</td>
             </tr>
             {{/each}}
           </tbody>
         </table>
       </div>
     </main>
-    <footer class="bg-dark text-white text-center py-3 mt-auto">
-      <div class="container">
-        <p>&copy; 2024 Cash Compass. All rights reserved.</p>
-      </div>
-    </footer>
   </div>
 
   {{#if loggedIn}}

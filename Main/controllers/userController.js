@@ -21,15 +21,18 @@ router.get('/signup', (req, res) => {
 
 // Route to render the profile page
 router.get('/profile', withAuth, async (req, res) => {
+  console.log('route hit');
+  console.log('session data in route')
   try {
     const userData = await User.findByPk(req.session.userId, {
       attributes: { exclude: ['password'] },
     });
-    const user = userData;
-
+    const user = userData.toJSON();
+    console.log(user);
     res.render('profile', {
+      loggedIn: req.session.loggedIn,
       user,
-      logged_in: true,
+
     });
   } catch (err) {
     res.status(500).json(err);
@@ -79,6 +82,9 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.userId = userData.id;
       req.session.loggedIn = true;
+      req.session.user = userData.toJSON();
+
+      console.log('session data after login (usercontroller):', req.session);
 
       res.render('dashboard', {
         userData,
@@ -92,6 +98,7 @@ router.post('/login', async (req, res) => {
 
 // Profile update route
 router.put('/profile', async (req, res) => {
+  console.log('update profile route');
   try {
     const userData = await User.findByPk(req.session.userId, {
       attributes: { exclude: ['password'] },
@@ -117,7 +124,15 @@ router.put('/profile', async (req, res) => {
       },
     });
 
-    res.redirect('/profile'); // Redirect the user back to the profile page
+    req.session.user = {
+      ...req.session.user,
+      ...updatedData,
+    };
+
+    req.session.save(() => {
+      res.redirect('/dashboard'); // Redirect the user back to the profile page
+    })
+ 
   } catch (err) {
     res.status(500).json(err);
   }

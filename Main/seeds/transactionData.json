@@ -1,35 +1,402 @@
 [
-    {
-      "date": "2024-06-10",
-      "cost": 100.50,
-      "categoryId": 1,
-      "vendorId": 1,
-      "userId": 1,
-      "description": "Grocery shopping"
-    },
-    {
-      "date": "2023-06-10",
-      "cost": 200.00,
-      "categoryId": 2,
-      "vendorId": 2,
-      "userId": 2,
-      "description": "Electronics purchase"
-    },
-    {
-      "date": "2023-06-10",
-      "cost": 169.00,
-      "categoryId": 2,
-      "vendorId": 2,
-      "userId": 3,
-      "description": "Electronics purchase"
-    },
-    {
-      "date": "2023-06-10",
-      "cost": 420.00,
-      "categoryId": 2,
-      "vendorId": 2,
-      "userId": 3,
-      "description": "Electronics purchase"
-    }
-  ]
-  
+  {
+    "date": "2024-06-01",
+    "cost": 50.25,
+    "categoryId": 1,
+    "vendorId": 1,
+    "userId": 1,
+    "description": "Grocery shopping"
+  },
+  {
+    "date": "2024-06-02",
+    "cost": 25.50,
+    "categoryId": 2,
+    "vendorId": 4,
+    "userId": 1,
+    "description": "Electric bill"
+  },
+  {
+    "date": "2024-06-03",
+    "cost": 35.75,
+    "categoryId": 3,
+    "vendorId": 7,
+    "userId": 1,
+    "description": "Dinner at a restaurant"
+  },
+  {
+    "date": "2024-06-04",
+    "cost": 10.99,
+    "categoryId": 4,
+    "vendorId": 10,
+    "userId": 1,
+    "description": "Gasoline"
+  },
+  {
+    "date": "2024-06-05",
+    "cost": 20.00,
+    "categoryId": 5,
+    "vendorId": 13,
+    "userId": 1,
+    "description": "Prescription medication"
+  },
+  {
+    "date": "2024-06-06",
+    "cost": 65.30,
+    "categoryId": 6,
+    "vendorId": 16,
+    "userId": 1,
+    "description": "Movie tickets"
+  },
+  {
+    "date": "2024-06-07",
+    "cost": 75.99,
+    "categoryId": 6,
+    "vendorId": 18,
+    "userId": 1,
+    "description": "T-shirt"
+  },
+  {
+    "date": "2024-06-08",
+    "cost": 20.50,
+    "categoryId": 7,
+    "vendorId": 21,
+    "userId": 1,
+    "description": "Textbook"
+  },
+  {
+    "date": "2024-06-09",
+    "cost": 15.75,
+    "categoryId": 8,
+    "vendorId": 24,
+    "userId": 1,
+    "description": "Bus ticket"
+  },
+  {
+    "date": "2024-06-10",
+    "cost": 80.25,
+    "categoryId": 9,
+    "vendorId": 27,
+    "userId": 1,
+    "description": "Haircut"
+  },
+  {
+    "date": "2024-06-11",
+    "cost": 45.00,
+    "categoryId": 1,
+    "vendorId": 2,
+    "userId": 1,
+    "description": "Grocery shopping"
+  },
+  {
+    "date": "2024-06-12",
+    "cost": 30.50,
+    "categoryId": 2,
+    "vendorId": 5,
+    "userId": 1,
+    "description": "Internet bill"
+  },
+  {
+    "date": "2024-06-13",
+    "cost": 40.25,
+    "categoryId": 3,
+    "vendorId": 8,
+    "userId": 1,
+    "description": "Lunch at a restaurant"
+  },
+  {
+    "date": "2024-06-14",
+    "cost": 15.99,
+    "categoryId": 4,
+    "vendorId": 11,
+    "userId": 1,
+    "description": "Parking fee"
+  },
+  {
+    "date": "2024-06-15",
+    "cost": 25.00,
+    "categoryId": 5,
+    "vendorId": 14,
+    "userId": 1,
+    "description": "Over-the-counter medicine"
+  },
+  {
+    "date": "2024-06-16",
+    "cost": 60.75,
+    "categoryId": 6,
+    "vendorId": 16,
+    "userId": 1,
+    "description": "Concert tickets"
+  },
+  {
+    "date": "2024-06-17",
+    "cost": 90.99,
+    "categoryId": 7,
+    "vendorId": 19,
+    "userId": 1,
+    "description": "Pair of shoes"
+  },
+  {
+    "date": "2024-06-18",
+    "cost": 35.50,
+    "categoryId": 8,
+    "vendorId": 22,
+    "userId": 1,
+    "description": "School supplies"
+  },
+  {
+    "date": "2024-06-19",
+    "cost": 10.75,
+    "categoryId": 9,
+    "vendorId": 25,
+    "userId": 1,
+    "description": "Taxi fare"
+  },
+  {
+    "date": "2024-06-20",
+    "cost": 75.25,
+    "categoryId": 10,
+    "vendorId": 28,
+    "userId": 1,
+    "description": "Manicure"
+  },
+  {
+    "date": "2024-06-11",
+    "cost": 55.00,
+    "categoryId": 1,
+    "vendorId": 3,
+    "userId": 2,
+    "description": "Groceries"
+  },
+  {
+    "date": "2024-06-12",
+    "cost": 35.50,
+    "categoryId": 2,
+    "vendorId": 6,
+    "userId": 2,
+    "description": "Internet bill"
+  },
+  {
+    "date": "2024-06-13",
+    "cost": 45.25,
+    "categoryId": 3,
+    "vendorId": 9,
+    "userId": 2,
+    "description": "Lunch at a restaurant"
+  },
+  {
+    "date": "2024-06-14",
+    "cost": 20.99,
+    "categoryId": 4,
+    "vendorId": 12,
+    "userId": 2,
+    "description": "Parking fee"
+  },
+  {
+    "date": "2024-06-15",
+    "cost": 30.00,
+    "categoryId": 5,
+    "vendorId": 15,
+    "userId": 2,
+    "description": "Medication"
+  },
+  {
+    "date": "2024-06-16",
+    "cost": 65.75,
+    "categoryId": 6,
+    "vendorId": 17,
+    "userId": 2,
+    "description": "Movie tickets"
+  },
+  {
+    "date": "2024-06-17",
+    "cost": 85.99,
+    "categoryId": 7,
+    "vendorId": 20,
+    "userId": 2,
+    "description": "New headphones"
+  },
+  {
+    "date": "2024-06-18",
+    "cost": 40.50,
+    "categoryId": 8,
+    "vendorId": 23,
+    "userId": 2,
+    "description": "Textbooks"
+  },
+  {
+    "date": "2024-06-19",
+    "cost": 15.75,
+    "categoryId": 9,
+    "vendorId": 26,
+    "userId": 2,
+    "description": "Bus fare"
+  },
+  {
+    "date": "2024-06-20",
+    "cost": 80.25,
+    "categoryId": 10,
+    "vendorId": 29,
+    "userId": 2,
+    "description": "Haircut"
+  },
+  {
+    "date": "2024-06-11",
+    "cost": 70.00,
+    "categoryId": 1,
+    "vendorId": 2,
+    "userId": 3,
+    "description": "Groceries"
+  },
+  {
+    "date": "2024-06-12",
+    "cost": 25.99,
+    "categoryId": 2,
+    "vendorId": 4,
+    "userId": 3,
+    "description": "Gas bill"
+  },
+  {
+    "date": "2024-06-13",
+    "cost": 50.50,
+    "categoryId": 3,
+    "vendorId": 8,
+    "userId": 3,
+    "description": "Dinner at a restaurant"
+  },
+  {
+    "date": "2024-06-14",
+    "cost": 15.00,
+    "categoryId": 4,
+    "vendorId": 11,
+    "userId": 3,
+    "description": "Ride share"
+  },
+  {
+    "date": "2024-06-15",
+    "cost": 35.25,
+    "categoryId": 5,
+    "vendorId": 13,
+    "userId": 3,
+    "description": "Prescription medication"
+  },
+  {
+    "date": "2024-06-16",
+    "cost": 60.75,
+    "categoryId": 6,
+    "vendorId": 17,
+    "userId": 3,
+    "description": "Netflix subscription"
+  },
+  {
+    "date": "2024-06-17",
+    "cost": 90.99,
+    "categoryId": 7,
+    "vendorId": 20,
+    "userId": 3,
+    "description": "Hoodie"
+  },
+  {
+    "date": "2024-06-18",
+    "cost": 45.00,
+    "categoryId": 8,
+    "vendorId": 24,
+    "userId": 3,
+    "description": "Online course materials"
+  },
+  {
+    "date": "2024-06-19",
+    "cost": 10.75,
+    "categoryId": 9,
+    "vendorId": 27,
+    "userId": 3,
+    "description": "House rental fee"
+  },
+  {
+    "date": "2024-06-20",
+    "cost": 75.25,
+    "categoryId": 10,
+    "vendorId": 30,
+    "userId": 3,
+    "description": "Spa treatment"
+  },
+  {
+    "date": "2024-06-21",
+    "cost": 120.00,
+    "categoryId": 1,
+    "vendorId": 1,
+    "userId": 3,
+    "description": "Weekly groceries"
+  },
+  {
+    "date": "2024-06-22",
+    "cost": 45.99,
+    "categoryId": 2,
+    "vendorId": 5,
+    "userId": 3,
+    "description": "Internet bill"
+  },
+  {
+    "date": "2024-06-23",
+    "cost": 70.50,
+    "categoryId": 3,
+    "vendorId": 7,
+    "userId": 3,
+    "description": "Lunch at a restaurant"
+  },
+  {
+    "date": "2024-06-24",
+    "cost": 20.00,
+    "categoryId": 4,
+    "vendorId": 10,
+    "userId": 3,
+    "description": "Ride to game"
+  },
+  {
+    "date": "2024-06-25",
+    "cost": 40.25,
+    "categoryId": 5,
+    "vendorId": 14,
+    "userId": 3,
+    "description": "Medical appointment co-pay"
+  },
+  {
+    "date": "2024-06-26",
+    "cost": 80.75,
+    "categoryId": 6,
+    "vendorId": 16,
+    "userId": 3,
+    "description": "Movie tickets"
+  },
+  {
+    "date": "2024-06-27",
+    "cost": 110.99,
+    "categoryId": 7,
+    "vendorId": 21,
+    "userId": 3,
+    "description": "Dress pants"
+  },
+  {
+    "date": "2024-06-28",
+    "cost": 55.00,
+    "categoryId": 8,
+    "vendorId": 22,
+    "userId": 3,
+    "description": "Textbooks"
+  },
+  {
+    "date": "2024-06-29",
+    "cost": 15.75,
+    "categoryId": 9,
+    "vendorId": 25,
+    "userId": 3,
+    "description": "Flight to NYC"
+  },
+  {
+    "date": "2024-06-30",
+    "cost": 90.25,
+    "categoryId": 10,
+    "vendorId": 30,
+    "userId": 3,
+    "description": "Massage therapy"
+  }
+]

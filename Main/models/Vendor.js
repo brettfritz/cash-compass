@@ -14,6 +14,14 @@ Vendor.init(
     name: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    categoryId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'category',
+        key: 'id'
+      }
     }
   },
   {
