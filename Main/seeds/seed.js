@@ -32,9 +32,12 @@ const seedDatabase = async () => {
     returning: true,
   });
 
+  await Session.bulkCreate(sessionData, {
+    returning: true,
+  });
+
   console.log('Database seeded successfully');
   process.exit(0);
 };
 
 seedDatabase();
-

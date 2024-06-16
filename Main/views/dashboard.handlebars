@@ -7,6 +7,7 @@
   <title>Dashboard | Cash Compass</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -25,12 +26,11 @@
           </div>
         </div>
 
-        <!-- Transaction Categories Chart -->
-        <div class="col-lg-8 mb-4">
-          <h2>Transaction Categories</h2>
-          <canvas id="transactionsChart"></canvas>
-          <script id="categorized-transactions-data" type="application/json"></script>
-        </div>
+      <!-- Transaction Categories Chart -->
+                <div class="col-lg-8 mb-4">
+                    <h2>Transaction Categories</h2>
+                    <canvas id="transactionsChart"></canvas>
+                </div>
 
         <!-- Recent Transactions -->
         <div class="col-lg-8 mb-4">
@@ -50,8 +50,8 @@
                   {{#each transactions}}
                   <tr>
                     <td>{{this.date}}</td>
-                    <td>{{this.vendorId}}</td>
-                    <td>{{this.categoryId}}</td>
+                    <td>{{this.vendor.name}}</td>
+                    <td>{{this.category.name}}</td>
                     <td>${{this.cost}}</td>
                   </tr>
                   {{else}}
@@ -72,7 +72,7 @@
           <div class="card bg-light mb-3">
             <div class="card-header">Quick Actions</div>
             <div class="card-body">
-              <a href="/add-transaction" class="btn btn-primary btn-block">Add Transaction</a>
+              <a href="/transactions/add" class="btn btn-primary btn-block">Add Transaction</a>
               <a href="/transactions" class="btn btn-secondary btn-block">View All Transactions</a>
               <a href="/users/profile" class="btn btn-info btn-block">Update Profile</a>
             </div>

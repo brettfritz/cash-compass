@@ -1,50 +1,67 @@
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Retrieve categorized transactions data from the hidden script tag
-    const categorizedTransactionsData = document.getElementById('categorized-transactions-data').textContent;
-    const categorizedTransactions = JSON.parse(categorizedTransactionsData);
-console.log('hello');
-    // Initialize the Chart.js chart
+document.addEventListener('DOMContentLoaded', async () => {
     const ctx = document.getElementById('transactionsChart').getContext('2d');
-    new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: Object.keys(categorizedTransactions),
-            datasets: [{
-                label: 'Transactions by Category',
-                data: Object.values(categorizedTransactions),
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'top',
-                },
-                title: {
-                    display: true,
-                    text: 'Transactions by Category'
+
+    try {
+        const response = await fetch('/transactions/data');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const transactions = await response.json();
+
+        // Process data for Chart.js
+        const categories = {};
+        transactions.forEach(transaction => {
+            if (!categories[transaction.category.name]) {
+                categories[transaction.category.name] = 0;
+            }
+            categories[transaction.category.name] += transaction.cost;
+        });
+
+        const categoryLabels = Object.keys(categories);
+        const categoryData = Object.values(categories);
+
+        // Generate random colors for each category
+        const backgroundColors = categoryLabels.map(() => {
+            const r = Math.floor(Math.random() * 255);
+            const g = Math.floor(Math.random() * 255);
+            const b = Math.floor(Math.random() * 255);
+            return `rgba(${r}, ${g}, ${b}, 0.6)`;
+        });
+
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: categoryLabels,
+                datasets: [{
+                    label: 'Expenses by Category',
+                    data: categoryData,
+                    backgroundColor: backgroundColors,
+                    borderColor: backgroundColors.map(color => color.replace('0.6', '1')),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += '$' + context.raw;
+                                return label;
+                            }
+                        }
+                    }
                 }
             }
-        },
-    });
+        });
+    } catch (err) {
+        console.error('Error fetching transaction data:', err);
+    }
 });

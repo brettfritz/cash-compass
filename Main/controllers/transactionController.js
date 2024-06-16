@@ -3,6 +3,7 @@ const { Transaction, User, Vendor, Category } = require('../models');
 const router = express.Router();
 const withAuth = require('../utils/auth');
 
+// Route to fetch and render transactions
 router.get('/', withAuth, async (req, res) => {
     try {
         console.log('Session Information:', req.session);
@@ -35,17 +36,49 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
-
-
-
-
-// POST route for new transactions
-router.post('/', withAuth, async (req, res) => {
+// Route to render the add transaction form
+router.get('/add', withAuth, async (req, res) => {
     try {
-        const transaction = await Transaction.create(req.body);
-        res.status(201).json(transaction);
+        const categories = await Category.findAll();
+        const vendors = await Vendor.findAll();
+
+        res.render('addTransaction', {
+            categories: categories.map(category => category.get({ plain: true })),
+            vendors: vendors.map(vendor => vendor.get({ plain: true })),
+            loggedIn: req.session.loggedIn
+        });
     } catch (err) {
-        res.status(400).json(err);
+        console.error('Error fetching categories or vendors:', err);
+        res.status(500).json(err);
+    }
+});
+
+// Route to handle adding a transaction
+router.post('/add', withAuth, async (req, res) => {
+    try {
+        console.log('Request Body:', req.body); // Log the request payload
+
+        const { date, cost, categoryId, vendorId } = req.body;
+
+        // Validate the input data
+        if (!date || !cost || !categoryId || !vendorId) {
+            res.status(400).json({ message: 'All fields are required' });
+            return;
+        }
+
+        // Create a new transaction
+        const newTransaction = await Transaction.create({
+            userId: req.session.userId,
+            date,
+            cost,
+            categoryId,
+            vendorId,
+        });
+
+        res.status(201).json(newTransaction);
+    } catch (err) {
+        console.error('Error creating transaction:', err);
+        res.status(500).json(err);
     }
 });
 
@@ -57,6 +90,7 @@ router.put('/:id', withAuth, async (req, res) => {
         });
         res.status(200).json(updatedTransaction);
     } catch (err) {
+        console.error('Error updating transaction:', err);
         res.status(400).json(err);
     }
 });
@@ -67,8 +101,37 @@ router.delete('/:id', withAuth, async (req, res) => {
         await Transaction.destroy({ where: { id: req.params.id } });
         res.status(200).json({ message: 'Transaction deleted' });
     } catch (err) {
+        console.error('Error deleting transaction:', err);
         res.status(400).json(err);
     }
 });
+
+// Endpoint to fetch transaction data for Chart.js
+router.get('/data', withAuth, async (req, res) => {
+    try {
+        const userId = req.session.userId;
+        if (!userId) {
+            throw new Error('User ID is not set in the session.');
+        }
+
+        const transactionData = await Transaction.findAll({
+            where: { userId: userId },
+            include: [
+                { model: Vendor, attributes: ['name'] },
+                { model: Category, attributes: ['name'] }
+            ]
+        });
+
+        const transactions = transactionData.map(transaction => transaction.toJSON());
+
+        res.json(transactions);
+    } catch (err) {
+        console.error('Error fetching transaction data:', err);
+        res.status(500).json(err);
+    }
+});
+
+module.exports = router;
+
 
 module.exports = router;

@@ -4,6 +4,35 @@ const bcrypt = require('bcrypt');
 const withAuth = require('../utils/auth');
 
 
+const loginUser = async (req, res) => {
+    try {
+        const user = await User.findOne({ where: { email: req.body.email } });
+        if (!user) {
+            res.status(400).json({ message: 'No user with that email address!' });
+            return;
+        }
+
+        const validPassword = await user.checkPassword(req.body.password);
+        if (!validPassword) {
+            res.status(400).json({ message: 'Incorrect password!' });
+            return;
+        }
+
+        req.session.save(() => {
+            req.session.userId = user.id;
+            req.session.loggedIn = true;
+            res.json({ user, message: 'You are now logged in!' });
+        });
+    } catch (err) {
+        res.status(400).json(err);
+    }
+};
+
+module.exports = {
+    loginUser,
+};
+
+
 router.get('/:id', (req, res) => {
   res.render('profile');
 })
