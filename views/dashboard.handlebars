@@ -22,7 +22,7 @@
             <div class="card-body">
               <h5 class="card-title">Welcome, {{user.firstName}}!</h5>
               <p class="card-text">Total income this month: ${{formatAmount user.income}}.</p>
-              <p class="card-text">Total expenses this month: ${{totalTransactions}}.</p>
+              <p class="card-text">Total expenses this month: ${{formatAmount allTransactionsTotal}}.</p>
             </div>
           </div>
 
