@@ -7,6 +7,7 @@
   <title>Dashboard | Cash Compass</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -14,33 +15,53 @@
   <div class="d-flex flex-column min-vh-100">
     <main class="container my-5">
       <div class="row">
-        <!-- User Overview -->
+        <!-- Account Overview -->
         <div class="col-lg-4 mb-4">
-          <div class="card bg-light mb-3">
-            <div class="card-header">Account Overview</div>
+          <div class="card text-white mb-3 section-card">
+            <div class="card-header section-title">Account Overview</div>
             <div class="card-body">
               <h5 class="card-title">Welcome, {{user.firstName}}!</h5>
-              <p class="card-text">Total income this month: ${{user.income}}.</p>
-              <p class="card-text">Total expenses this month: ${{user.totalExpenses}}.</p>
+              <p class="card-text">Total income this month: ${{formatAmount user.income}}.</p>
+              <p class="card-text">Total expenses this month: ${{totalTransactions}}.</p>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="card text-white mb-3 section-card">
+            <div class="card-header section-title">Quick Actions</div>
+            <div class="card-body">
+              <a href="/transactions/add" class="btn btn-primary btn-block">Add Transaction</a>
+              <a href="/transactions" class="btn btn-secondary btn-block">View All Transactions</a>
+              <a href="/users/profile" class="btn btn-info btn-block">Update Profile</a>
             </div>
           </div>
         </div>
 
-      <!-- Transaction Categories Chart -->
-                <div class="col-lg-8 mb-4">
-                    <h2>Transaction Categories</h2>
-                    <canvas id="transactionsChart"></canvas>
-                </div>
-
-        <!-- Recent Transactions -->
+        <!-- Transaction Categories Chart -->
         <div class="col-lg-8 mb-4">
-          <div class="card bg-light mb-3">
-            <div class="card-header">Recent Transactions</div>
+          <div class="card text-white mb-3 section-card">
+            <div class="card-header section-title">Transaction Categories</div>
             <div class="card-body">
-              <table class="table table-striped">
-                <thead>
+              <canvas id="transactionsChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Transactions -->
+      <div class="row">
+        <div class="col-lg-12 mb-4">
+          <div class="card text-white mb-3 section-card">
+            <div class="card-header section-title">Your Recent Transactions</div>
+            <div class="card-body">
+              <a href="/transactions/add" class="btn btn-primary">Add New Transaction</a>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered text-white">
+                <thead class="thead-dark">
                   <tr>
                     <th scope="col">Date</th>
+                    <th scope="col">Description</th>
                     <th scope="col">Vendor</th>
                     <th scope="col">Category</th>
                     <th scope="col">Amount</th>
@@ -48,15 +69,16 @@
                 </thead>
                 <tbody>
                   {{#each transactions}}
-                  <tr>
-                    <td>{{this.date}}</td>
-                    <td>{{this.vendor.name}}</td>
+                  <tr style="background-color: {{stripeColor @index}}">
+                    <td>{{formatDate this.date}}</td>
+                    <td>{{this.description}}</td>
+                    <td>{{this.vendor}}</td>
                     <td>{{this.category.name}}</td>
-                    <td>${{this.cost}}</td>
+                    <td>${{formatAmount this.cost}}</td>
                   </tr>
                   {{else}}
                   <tr>
-                    <td colspan="4" class="text-center">No recent transactions found.</td>
+                    <td colspan="5" class="text-center">No transactions found.</td>
                   </tr>
                   {{/each}}
                 </tbody>
@@ -65,26 +87,7 @@
           </div>
         </div>
       </div>
-
-      <div class="row">
-        <!-- Quick Actions -->
-        <div class="col-lg-4 mb-4">
-          <div class="card bg-light mb-3">
-            <div class="card-header">Quick Actions</div>
-            <div class="card-body">
-              <a href="/transactions/add" class="btn btn-primary btn-block">Add Transaction</a>
-              <a href="/transactions" class="btn btn-secondary btn-block">View All Transactions</a>
-              <a href="/users/profile" class="btn btn-info btn-block">Update Profile</a>
-            </div>
-          </div>
-        </div>
-      </div>
     </main>
-    <footer class="bg-dark text-white text-center py-3 mt-auto">
-      <div class="container">
-        <p>&copy; 2024 Cash Compass. All rights reserved.</p>
-      </div>
-    </footer>
   </div>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>

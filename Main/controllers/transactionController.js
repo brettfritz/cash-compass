@@ -17,10 +17,8 @@ router.get('/', withAuth, async (req, res) => {
 
         const transactionData = await Transaction.findAll({
             where: { userId: userId },
-            include: [
-                { model: Vendor, attributes: ['name'] },
-                { model: Category, attributes: ['name'] }
-            ]
+            include: [{ model: Category, attributes: ['name'] }],
+            order: [['date', 'DESC']],
         });
 
         const transactions = transactionData.map(transaction => transaction.toJSON());
@@ -40,11 +38,8 @@ router.get('/', withAuth, async (req, res) => {
 router.get('/add', withAuth, async (req, res) => {
     try {
         const categories = await Category.findAll();
-        const vendors = await Vendor.findAll();
-
         res.render('addTransaction', {
             categories: categories.map(category => category.get({ plain: true })),
-            vendors: vendors.map(vendor => vendor.get({ plain: true })),
             loggedIn: req.session.loggedIn
         });
     } catch (err) {
@@ -58,10 +53,10 @@ router.post('/add', withAuth, async (req, res) => {
     try {
         console.log('Request Body:', req.body); // Log the request payload
 
-        const { date, cost, categoryId, vendorId } = req.body;
+        const { date, cost, description, categoryId, vendor } = req.body;
 
         // Validate the input data
-        if (!date || !cost || !categoryId || !vendorId) {
+        if (!date || !cost || !categoryId || !vendor) {
             res.status(400).json({ message: 'All fields are required' });
             return;
         }
@@ -71,8 +66,9 @@ router.post('/add', withAuth, async (req, res) => {
             userId: req.session.userId,
             date,
             cost,
+            description,
             categoryId,
-            vendorId,
+            vendor,
         });
 
         res.status(201).json(newTransaction);
@@ -82,18 +78,50 @@ router.post('/add', withAuth, async (req, res) => {
     }
 });
 
+//Route to render the update transaction form
+router.get('/update/:id', withAuth, async (req, res) => {
+    try {
+        const transactionId = req.params.id;
+        const transaction = await Transaction.findByPk(transactionId);
+        if (!transaction) {
+            return res.status(404).json({ message: 'Transaction not found' });
+        }
+
+        const categories = await Category.findAll();
+        res.render('updateTransaction', {
+            categories: categories.map(category => category.get({ plain: true })),
+            transaction: transaction.toJSON(),
+            loggedIn: req.session.loggedIn
+        });
+    } catch (err) {
+        console.error('Error fetching transaction or categories:', err);
+        res.status(500).json(err);
+    }
+});
+
 // PUT route for updating transaction details
 router.put('/:id', withAuth, async (req, res) => {
     try {
-        const updatedTransaction = await Transaction.update(req.body, {
-            where: { id: req.params.id }
-        });
+        const { date, cost, description, categoryId, vendor } = req.body;
+
+        // Validate the input data
+        if (!date || !cost || !description || !categoryId || !vendor) {
+            res.status(400).json({ message: 'All fields are required' });
+            return;
+        }
+
+        const updatedTransaction = await Transaction.update(
+            { date, cost, description, categoryId, vendor },
+            { where: { id: req.params.id } }
+        );
+
         res.status(200).json(updatedTransaction);
     } catch (err) {
         console.error('Error updating transaction:', err);
         res.status(400).json(err);
     }
 });
+
 
 // DELETE route for deleting a transaction
 router.delete('/:id', withAuth, async (req, res) => {
@@ -117,7 +145,6 @@ router.get('/data', withAuth, async (req, res) => {
         const transactionData = await Transaction.findAll({
             where: { userId: userId },
             include: [
-                { model: Vendor, attributes: ['name'] },
                 { model: Category, attributes: ['name'] }
             ]
         });
@@ -133,5 +160,3 @@ router.get('/data', withAuth, async (req, res) => {
 
 module.exports = router;
 
-
-module.exports = router;

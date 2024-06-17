@@ -15,12 +15,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
         try {
           const response = await fetch('/users/signup', {
             method: 'POST',
-            body: JSON.stringify({ username, firstName, lastName, email, password }),
+            body: JSON.stringify({ username, firstName, lastName, email, password, income }),
             headers: { 'Content-Type': 'application/json' },
           });
   
           if (response.ok) {
-            document.location.replace('/login');
+            document.location.replace('/dashboard');
           } else {
             const errorMessage = await response.json();
             console.error('Failed to sign up:', errorMessage);

@@ -23,7 +23,7 @@ const sess = {
 
 app.use(session(sess));
 
-const hbs = exphbs.create({helpers});
+const hbs = exphbs.create({ helpers });
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
@@ -32,14 +32,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// // Middleware to set loggedIn status and user data
-// function setLoggedInStatus(req, res, next) {
-//     res.locals.loggedIn = req.session.loggedIn;
-//     res.locals.user = req.session.user;
-//     next();
-// }
+// Middleware to set loggedIn status and user data
+function setLoggedInStatus(req, res, next) {
+    res.locals.loggedIn = req.session.loggedIn;
+    res.locals.user = req.session.user;
+    next();
+}
 
-// app.use(setLoggedInStatus);
+app.use(setLoggedInStatus);
 
 app.use(routes);
 

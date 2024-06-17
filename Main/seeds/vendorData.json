@@ -1,123 +1,93 @@
 [
   {
-    "name": "Kroger",
-    "categoryId": 1
+    "name": "Kroger"
   },
   {
-    "name": "Whole Foods",
-    "categoryId": 1
+    "name": "Whole Foods"
   },
   {
-    "name": "Trader Joe's",
-    "categoryId": 1
+    "name": "Trader Joe's"
   },
   {
-    "name": "Duke Energy",
-    "categoryId": 2
+    "name": "Duke Energy"
   },
   {
-    "name": "Comcast",
-    "categoryId": 2
+    "name": "Comcast"
   },
   {
-    "name": "AT&T",
-    "categoryId": 2
+    "name": "AT&T"
   },
   {
-    "name": "McDonald's",
-    "categoryId": 3
+    "name": "McDonald's"
   },
   {
-    "name": "Chick-fil-A",
-    "categoryId": 3
+    "name": "Chick-fil-A"
   },
   {
-    "name": "Starbucks",
-    "categoryId": 3
+    "name": "Starbucks"
   },
   {
-    "name": "Uber",
-    "categoryId": 4
+    "name": "Uber"
   },
   {
-    "name": "Lyft",
-    "categoryId": 4
+    "name": "Lyft"
   },
   {
-    "name": "Greyhound",
-    "categoryId": 4
+    "name": "Greyhound"
   },
   {
-    "name": "CVS",
-    "categoryId": 5
+    "name": "CVS"
   },
   {
-    "name": "Walgreens",
-    "categoryId": 5
+    "name": "Walgreens"
   },
   {
-    "name": "Mayo Clinic",
-    "categoryId": 5
+    "name": "Mayo Clinic"
   },
   {
-    "name": "AMC Theatres",
-    "categoryId": 6
+    "name": "AMC Theatres"
   },
   {
-    "name": "Netflix",
-    "categoryId": 6
+    "name": "Netflix"
   },
   {
-    "name": "Spotify",
-    "categoryId": 6
+    "name": "Spotify"
   },
   {
-    "name": "Nike",
-    "categoryId": 7
+    "name": "Nike"
   },
   {
-    "name": "Adidas",
-    "categoryId": 7
+    "name": "Adidas"
   },
   {
-    "name": "H&M",
-    "categoryId": 7
+    "name": "H&M"
   },
   {
-    "name": "University of XYZ Bookstore",
-    "categoryId": 8
+    "name": "University of XYZ Bookstore"
   },
   {
-    "name": "Udemy",
-    "categoryId": 8
+    "name": "Udemy"
   },
   {
-    "name": "Coursera",
-    "categoryId": 8
+    "name": "Coursera"
   },
   {
-    "name": "Expedia",
-    "categoryId": 9
+    "name": "Expedia"
   },
   {
-    "name": "Booking.com",
-    "categoryId": 9
+    "name": "Booking.com"
   },
   {
-    "name": "Airbnb",
-    "categoryId": 9
+    "name": "Airbnb"
   },
   {
-    "name": "Sephora",
-    "categoryId": 10
+    "name": "Sephora"
   },
   {
-    "name": "Ulta",
-    "categoryId": 10
+    "name": "Ulta"
   },
   {
-    "name": "The Body Shop",
-    "categoryId": 10
+    "name": "The Body Shop"
   }
 ]
 
