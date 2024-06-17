@@ -18,9 +18,14 @@ router.get('/', withAuth, async (req, res) => {
             limit: 5 // Limit to 5 most recent transactions
         });
 
+        const allTransactions = await Transaction.findAll({
+            where: { userId: req.session.userId },
+            });
+
         const income = await Income.findAll({
             where: { userId: req.session.userId }
         });
+        const allTransactionsTotal =  Math.round((allTransactions.reduce((sum, transaction) => sum + transaction.cost, 0)) * 100) / 100;
 
         // Calculate total transactions and income
         const totalTransactions = Math.round((transactions.reduce((sum, transaction) => sum + transaction.cost, 0)) * 100) / 100;
@@ -35,6 +40,7 @@ router.get('/', withAuth, async (req, res) => {
             totalTransactions,
             totalIncome,
             balance,
+            allTransactionsTotal,
         });
     } catch (err) {
         res.status(500).json(err);
