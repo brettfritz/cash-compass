@@ -1,0 +1,44 @@
+
+/* Style the navbar */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.5); 
+    border-radius: 0; 
+}
+
+/* Style the navbar-brand */
+.navbar-brand {
+    color: white; 
+    font-size: 60px; 
+}
+
+/* Style the navbar-toggler-icon */
+.navbar-toggler-icon {
+    background-color: white; 
+}
+
+/* Style the navbar links */
+.navbar-nav .nav-link {
+    color: white;
+    font-size: 18px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffc107;
+}
+
+/* Style the "Logout" button */
+#logout {
+    background-color: #dc3545;
+    color: white; 
+}
+
+#logout:hover {
+    background-color: #c82333; 
+}
+
+
+@media (max-width: 991px) {
+    .mt-1 {
+        margin-top: 10px; 
+    }
+}

@@ -79,10 +79,13 @@ router.post('/signup', async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     });
-
+    console.log('New User:', newUser.toJSON());
+    
     req.session.save(() => {
       req.session.userId = newUser.id;
       req.session.loggedIn = true;
+
+      console.log('Session:', req.session);
 
       res.status(200).json(newUser);
     });
@@ -132,7 +135,10 @@ router.put('/profile', async (req, res) => {
     const userData = await User.findByPk(req.session.userId, {
       attributes: { exclude: ['password'] },
     });
-    console.log(userData);
+
+    if (!userData) {
+      return res.status(404).json({ message: 'User not found' });
+    }
 
     const updatedData = {
       username: req.body.username,
@@ -141,7 +147,6 @@ router.put('/profile', async (req, res) => {
       email: req.body.email,
       income: req.body.income,
     };
-    console.log(updatedData);
 
     if (req.body.password) {
       updatedData.password = await bcrypt.hash(req.body.password, 10);
@@ -158,14 +163,21 @@ router.put('/profile', async (req, res) => {
       ...updatedData,
     };
 
-    req.session.save(() => {
-      res.redirect('/dashboard'); // Redirect the user back to the profile page
-    })
- 
+    req.session.save((err) => {
+      if (err) {
+        console.error('Error saving session:', err);
+        return res.status(500).json({ message: 'Failed to save session' });
+      }
+
+      res.status(200).json({ message: 'Profile updated successfully' });
+    });
+
   } catch (err) {
-    res.status(500).json(err);
+    console.error('Error updating profile:', err);
+    res.status(500).json({ message: 'Failed to update profile' });
   }
 });
+
 
 
 // Logout route

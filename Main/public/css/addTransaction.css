@@ -1,0 +1,31 @@
+/* Add Transaction Page Styles */
+.add-transaction-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+}
+
+.add-transaction-container h1 {
+    color: white;
+}
+
+.add-transaction-container label {
+    color: white;
+}
+
+.add-transaction-container .form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.add-transaction-container .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.add-transaction-container .btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+

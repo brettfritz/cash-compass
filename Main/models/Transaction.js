@@ -34,17 +34,14 @@ Transaction.init(
     },
     categoryId: {
       type: DataTypes.INTEGER,
-      reference: {
+      references: {
         model: 'category',
         key: 'id',
       }
     },
-    vendorId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'vendor',
-        key: 'id'
-      }
+    vendor: {
+      type: DataTypes.TEXT,
+      allowNull: false,
     }
   },
   {

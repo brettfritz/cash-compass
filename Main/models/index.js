@@ -1,7 +1,6 @@
 const User = require('./User');
 const Transaction = require('./Transaction');
 const Category = require('./Category');
-const Vendor = require('./Vendor');
 const Income = require('./Income');
 const Session = require('./Session');
 
@@ -22,15 +21,6 @@ Category.hasMany(Transaction, {
 
 Transaction.belongsTo(Category, {
   foreignKey: 'categoryId'
-});
-
-Vendor.hasMany(Transaction, {
-  foreignKey: 'vendorId',
-  onDelete: 'CASCADE'
-});
-
-Transaction.belongsTo(Vendor, {
-  foreignKey: 'vendorId'
 });
 
 User.hasMany(Income, {
@@ -55,7 +45,6 @@ module.exports = {
   User,
   Transaction,
   Category,
-  Vendor,
   Income,
   Session
 };

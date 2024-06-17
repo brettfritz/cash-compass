@@ -1,127 +1,99 @@
-# 15 Project 2: Interactive Full-Stack Application
+# Cash Compass
 
-Projects play a key role in your journey to becoming a full-stack web developer. As you enter the last phase of the boot camp, you’ll begin to apply for development jobs. If you want to land interviews, your portfolio must feature high-quality deployed examples of your work—-and you can use your finished projects for that very purpose.
+Cash Compass is a brand new finance app to help you achieve your financial freedom. We do this by letting you track every dollar of your finances in one place so you can see where your money is going. No money should ever be lost, you should always know exactly where you are putting your hard earned cash, and Cash Compass helps you with that
 
+## Table of Contents
+- [Demo/Description](#demo/description)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Setup Instructions](#setup-instructions)
+- [License](#license)
 
-As your first opportunity to show employers your collaborative skills and coding abilities, this particular project will be a focal point of your portfolio. Employers want to see what you can do, but they also want to see how you work with other developers. The more examples of deployed collaborative work you have in your portfolio, the more likely you are to get an interview and a job.
+## Demo/Description
 
-## Project Requirements
+1. In order to get started, paste the following link in your browser in order to navigate to the website. https://cash-compass.onrender.com
+2. Upon loading you'll be greeted with our landing page where there is a button for you to sign up to start your journey
 
-You and your group will use everything you’ve learned over the past six modules to create a real-world full-stack application that you’ll be able to showcase to potential employers. The user story and acceptance criteria will depend on the project that you create, but your project must fulfil the following requirements:
+![landing page](Main/public/images/landing-page-snip.png)
 
-* Use Node.js and Express.js to create a RESTful API.
+3. After clicking the sign up button you will be redirected to a form where you can fill out your personal information to get your account set up.
 
-* Use Handlebars.js as the template engine.
+![sign up form](Main/public/images/sign-up-snip.png)
 
-* Use PostgreSQL and the Sequelize ORM for the database.
+4. After signing up, you can revisit the website at anytime and access all of the features by simply logging in.
 
-* Have both GET and POST routes for retrieving and adding new data.
+![login](Main/public/images/login-snip.png)
 
-* Use at least one new library, package, or technology that we haven’t discussed.
+5. Once you have successfully signed up and/or logged in if you are revisiting, you will be redirected to you dashboard. Your dashboard brings all of your finances into one place, allowing you to see everything that you are spending your money on so that you can track it. First you have an account overview. The account overview displays your monthly income and the sum of all of your expenses. To the right you will see a pie chart showing what categories you have been spending the heaviest or the lightest. There is also a Quick Actions section where you can add a transaction, edit a transaction, and update your profile. Lastly at the bottom you will see a list of your 5 most recent transactions and their details. 
 
-* Have a folder structure that meets the MVC paradigm.
+![dashboard-1](Main/public/images/dashboard-1-snip.png)
+![dashboard-2](Main/public/images/dashboard-2-snip.png)
 
-* Include authentication (express-session and cookies).
+6. From here, by clicking the Transactions button in the header or the View All Transactions button from the Quick Actions, you will land at the Transactions page. You will be presented with a list of all of your transactions and the details for each.
 
-* Protect API keys and sensitive information with environment variables.
+![transactions](Main/public/images/transactions-snip.png)
 
-* Be deployed using Render (with data).
+7. Each transaction will have 2 buttons. One to delete the transaction, which will simply delete the transaction from your profile and update all of the data accordingly, and another to update a transaction. When clicking the update button on a transaction, your will be displayed a form with the current transaction information, and you are free to make the changes need. when you are done, simply click submit and those changes with be reflected throughout the app. 
 
-* Have a polished UI.
+![update-transaction](Main/public/images/update-transaction-snip.png)
 
-* Be responsive.
+8. Now say you just got home from shopping and you bought a new pair of shoes and you would like to add that to your financial profile. You can use the Add Transaction button for all purchases. Simply fill out the form with the details of the purchase and submit, and that transaction will be reflected throughout the app.
 
-* Be interactive (i.e., accept and respond to user input).
+![add-transaction](Main/public/images/add-transaction-snip.png)
 
-* Meet good-quality coding standards (file structure, naming conventions, follows best practices for class/id naming conventions, indentation, quality comments, etc.).
+9. Say you've been using the app for a while and some of your personal information changed. Maybe you got a raise at work, or you got married and need to change your last name. You can update these things and more my clicking the Profile button in the header or the Update Profile button in the Quick Actions on the dashboard.
 
-* Have a professional README (with unique name, description, technologies used, screenshot, and link to deployed application).
+![profile](Main/public/images/update-profile-snip.png)
 
-## Presentation Requirements
+10. With that, you are free to use the app to help your reach your goals and achieve financial freedom!
 
-Use this [project presentation template](https://docs.google.com/presentation/d/10QaO9KH8HtUXj__81ve0SZcpO5DbMbqqQr4iPpbwKks/edit?usp=sharing) to address the following:
+## Features
 
-* Elevator pitch: a one minute description of your application
+- Dashboard to display an overview of your financial account
+- Recent transactions on the dashboard
+- Quick actions for adding a transaction, viewing all transactions, and updating profile information
+- Track all of a user's transactions
+  - Adding a transaction
+  - Updating a transaction
+  - Deleting a transaction
+- Create a new user profile
+  - Update a user profile
+- Login and Logout functionallity
 
-* Concept: What is your user story? What was your motivation for development?
+## Technologies Used
 
-* Process: What were the technologies used? How were tasks and roles broken down and assigned? What challenges did you encounter? What were your successes?
+- HTML
+- CSS
+- Bootstrap
+- Javascript
+- jQuery
+- Chart.js
+- Handlebars.js
+- Node.js
+- Express.js
+- Passport.js
+- bcrypt.js
+- Popper.js
+- Sequelize
+- Git
+- Github
+- JSON
+- npm
 
-* Demo: Show your stuff!
+## Setup Instructions
 
-* Directions for Future Development
+Simply follow the attached link to the live website to start managing your finances!
 
-* Links to the deployed application and the GitHub repository. Use the [Deploy with Render and PostgreSQL](https://coding-boot-camp.github.io/full-stack/render/deploy-with-render-and-postgresql) post on The Full-Stack Blog if you need a reminder on how to deploy to Render.
+## Contributors
+Brett Fritz - Repositories: https://github.com/brettfritz?tab=repositories
 
-## Grading Requirements
+Bren Broussard - Repositories: https://github.com/brenj23?tab=repositories
 
-This project is graded based on the following criteria:
+## Links
+Cash Compass Repository: https://github.com/brettfritz/cash-compass
 
-### Technical Acceptance Criteria: 25%
+Cash Compass Live Website: https://cash-compass.onrender.com
 
-* Satisfies the following code requirements:
+## License
 
-  * Application uses a Node.js and Express.js back end and uses both GET and POST routes for retrieving and adding new data.
-
-  * Application has a folder structure that meets the MVC paradigm and uses Handlebars.js as the template engine.
-
-  * Application is backed by a PostgreSQL database with a Sequelize ORM and protects API keys and sensitive information with environment variables.
-
-  * Application includes user authentication (express-session and cookies).
-
-  * Application uses at least one new library, package, or technology not covered in class.
-
-### Concept 10%
-
-* Application should be a unique and novel idea.
-
-* Your group should clearly and concisely articulate your project idea.
-
-### Deployment: 20%
-
-* Application deployed at live URL on Render and loads with no errors.
-
-* Application GitHub URL submitted.
-
-### Repository Quality: 10%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id-naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality README file with description, screenshot, and link to deployed application.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application is responsive.
-
-### Presentation 10%
-
-* Your group should present using a slide deck.
-
-* Every group member should speak during the presentation.
-
-* Your presentation should follow the [Project Presentation Template](https://docs.google.com/presentation/d/10QaO9KH8HtUXj__81ve0SZcpO5DbMbqqQr4iPpbwKks/edit?usp=sharing).
-
-### Collaboration 10%
-
-* There are no major disparities in the number of GitHub contributions between group members.
-
-## How to Submit Your Interactive Full-Stack Project
-
-**Each member of your group** is required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository, with a unique name and a README describing the project.
-
----
-© 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+MIT License

@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 responsive: true,
                 plugins: {
                     legend: {
-                        position: 'top',
+                        position: 'right',
                     },
                     tooltip: {
                         callbacks: {
@@ -58,7 +58,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                             }
                         }
                     }
-                }
+                },
+                // Set the font color for the pie chart labels to white
+                color: 'white'
             }
         });
     } catch (err) {
